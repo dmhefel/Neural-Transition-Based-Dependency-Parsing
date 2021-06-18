@@ -70,9 +70,7 @@ class ParserModel():
         self.W2 = np.random.uniform(-0.1, .1, (1+self.hidden_size, self.hidden_size))
 
         ### END YOUR CODE
-        '''self.U = np.random.uniform(-.1, .1, (self.hidden_size+1, self.n_classes))
-        self.W1 = np.random.uniform(-.05, .05, (self.embed_size*self.n_features+1, self.hidden_size))
-        self.W2 = np.random.uniform(-0.1, .1, (1+self.hidden_size, self.hidden_size))'''
+        
     def embedding_lookup(self, w):
         """ Utilize `w` to select embeddings from embedding matrix `self.embeddings`
             @param w (ndarray): input tensor of word indices (batch_size, n_features)
@@ -118,7 +116,7 @@ class ParserModel():
         embed = self.embedding_lookup(w)
         embed2 = np.ones((np.size(embed, 0),np.size(embed, 1)+1)) #creates a new matrix of (x, y+1) to account for bias
         embed2[:,:-1] = embed
-        #print("MEOW", embed2)
+     
 
         h1=relu(np.dot(embed2,self.W1))
         h1_2 = np.ones((np.size(h1,0), np.size(h1, 1)+1))

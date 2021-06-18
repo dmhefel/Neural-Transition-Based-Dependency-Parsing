@@ -37,7 +37,6 @@ def d_relu(x):
     ###     Be sure to take advantage of Numpy universal functions!
     ###     Note that by convention, we take the derivative of ReLU(z) at z = 0 to be 0.
 
-    #y = (z > 0).astype(int)
     y = (x>0).view('i1')
 
 
